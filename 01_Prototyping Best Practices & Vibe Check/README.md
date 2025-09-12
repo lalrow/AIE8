@@ -36,16 +36,84 @@ You will be required to submit a link to your GitHub, as well as screenshots of 
 
 Please evaluate your system on the following questions:
 
-1. Explain the concept of object-oriented programming in simple terms to a complete beginner. 
-    - Aspect Tested:
+1. Explain the concept of object-oriented programming in simple terms to a complete beginner.
+   - **Aspect Tested:**
+     - Clarity (does it avoid jargon and use relatable examples?)
+     - Accuracy (are the fundamentals of OOP described correctly?)
+     - Structure (does the explanation flow logically with clear parts like classes, objects, attributes, methods?)
+     - Tone (is it accessible to someone new, not intimidating?)
 2. Read the following paragraph and provide a concise summary of the key points…
-    - Aspect Tested:
+
+Astronomy represents one of humanity's oldest sciences, born from our ancestors' need to navigate, track seasons, and understand our place in the cosmos. As autumn arrives in the Northern Hemisphere, the night sky transforms into a spectacular canvas of ancient star patterns that have guided civilizations for millennia. The fall season offers some of the most magnificent constellations visible from northern latitudes, each carrying rich mythological stories and astronomical significance that continue to captivate stargazers today. Among these celestial treasures, few constellations capture the imagination quite like Andromeda, the chained princess whose star pattern houses one of the most significant objects in our cosmic neighborhood.
+Connected to the prominent Great Square of Pegasus through the shared star Alpheratz lies Andromeda, representing the chained princess of Ethiopian mythology. This constellation holds extraordinary significance in modern astronomy as it contains the Andromeda Galaxy (M31), the nearest major galaxy to our Milky Way at approximately 2.5 million light-years distant. On clear, dark nights away from city lights, this galaxy appears as a faint, elongated smudge visible to the naked eye, making it the most distant object regularly observable without optical aid. The constellation's brightest stars - Alpheratz, Mirach, and Almach - form a distinctive curved line that guides observers toward this cosmic treasure. The Andromeda Galaxy contains roughly one trillion stars and is approaching our galaxy at about 250,000 miles per hour, though a collision won't occur for another 4.5 billion years.
+
+Summary: 
+Astronomy, one of humanity's oldest sciences, evolved from the need to navigate and understand the cosmos. In the Northern Hemisphere's autumn, prominent constellations with rich mythological and astronomical significance become visible, notably Andromeda. Linked to the Great Square of Pegasus by the star Alpheratz, Andromeda features the Andromeda Galaxy (M31), the nearest major galaxy to the Milky Way at 2.5 million light-years away. This galaxy is visible to the naked eye under dark skies and contains about one trillion stars. It is moving toward the Milky Way at 250,000 miles per hour, with a predicted collision in 4.5 billion years.
+
+   - **Aspect Tested:**
+     - **Scoring Breakdown**
+       - Coverage of Key Ideas (40 pts) – 37/40
+         - Captures the main themes: astronomy's origins, autumn constellations, Andromeda, its galaxy, distance, visibility, star count, and collision timeline.
+         - Misses just a touch of the mythological storytelling emphasis (the "chained princess" motif is implied but not named).
+       - Conciseness (25 pts) – 23/25
+         - Nicely condensed from ~300 words to ~110 words.
+         - Could shave a little more (e.g., combine "naked eye under dark skies" with "visible to the naked eye").
+       - Clarity & Flow (20 pts) – 19/20
+         - Very readable, logical order.
+         - A tiny bit heavy on numbers; balancing with myth might make it smoother.
+       - Tone & Accuracy (15 pts) – 15/15
+         - Correct facts, neutral and professional tone.
+       - **Overall Score: 94/100**
+
 3. Write a short, imaginative story (100–150 words) about a robot finding friendship in an unexpected place.
-    - Aspect Tested:
+   - **Aspect Tested:**
+     1. **Creativity & Imagination** - Score: 95/100
+        - Strong futuristic setting ("city of steel and glass") + contrast with nature ("ancient oak").
+        - The unlikely pairing of robot + stray dog feels fresh and heartwarming.
+        - Slight room to push originality with a small twist/conflict.
+     2. **Coherence & Structure** - Score: 90/100
+        - Clear arc: robot's longing → chance encounter → growing bond → lesson learned.
+        - Smooth transitions between scenes ("one rainy evening… days passed… passersby marveled…").
+        - Could sharpen pacing by adding a small tension before resolution.
+     3. **Emotional Engagement** - Score: 93/100
+        - Readers sympathize with R4-KO's yearning.
+        - Dog's presence adds warmth and universality.
+        - Lovely ending line ties it together with a moral.
+        - Might add one moment of vulnerability (e.g., robot fearing rejection) for even deeper pull.
+     4. **Language Quality** - Score: 92/100
+        - Poetic and descriptive without being heavy.
+        - A few phrases ("concept coded but never truly experienced") lean a bit abstract for a beginner audience.
+        - Otherwise polished and evocative.
+     5. **Adherence to Instructions** - Score: 100/100
+        - Story length is right in the 100–150 words zone.
+        - Clear imaginative short story, fits exactly what the task asked.
+
 4. If a store sells apples in packs of 4 and oranges in packs of 3, how many packs of each do I need to buy to get exactly 12 apples and 9 oranges?
-    - Aspect Tested:
+   - **Aspect Tested:**
+     - This question is checking the model's basic logical reasoning and arithmetic skills. Specifically:
+       - Can it parse a word problem correctly?
+       - Does it apply division/multiplication without mistakes?
+       - Can it clearly present the step-by-step reasoning, not just the final answer?
+     - **Scoring Breakdown**
+       - **Correctness (40 pts) – 40/40**
+         - The math is correct: 3 apple packs, 3 orange packs.
+       - **Clarity of Reasoning (25 pts) – 23/25**
+         - Nicely broken into steps, but could've been slightly more concise (e.g., combine explanation and math in fewer lines).
+       - **Structure & Presentation (20 pts) – 19/20**
+         - Bullet points and equations make it easy to follow.
+         - Clean formatting.
+       - **Tone & Accessibility (15 pts) – 14/15**
+         - Clear and beginner-friendly.
+         - "You want exactly 12 apples and 9 oranges" repeats the question — not bad, but could be skipped.
+       - **Overall Score: 96/100**
+
+
 5. Rewrite the following paragraph in a professional, formal tone…
-    - Aspect Tested:
+
+The sky appears blue because of something called Rayleigh scattering which happens when sunlight enters our atmosphere and interacts with tiny particles and gas molecules. When white light from the sun hits these small particles, it gets scattered in all directions but blue light has a shorter wavelength than other colors, so it gets scattered more than red yellow or green light. This is why we see blue during the day when we look up at the sky. The process is named after Lord Rayleigh who first explained it scientifically in the late 1800s. Sunlight actually contains all the colors of the rainbow mixed together, which you can see when light passes through a prism or when you see a rainbow after it rains. The atmosphere acts kind of like a prism scattering the different colors in different amounts. Blue and violet light get scattered the most because they have shorter wavelengths, but our eyes are more sensitive to blue than violet so we percieve the sky as blue rather than purple. During sunrise and sunset the sky often looks red or orange because the sunlight has to travel through more atmosphere to reach us, and most of the blue light gets scattered away before it reaches our eyes leaving mostly red and orange light. This is also why the sun itself looks more red or orange during these times. The same principal explains why distant mountains often look blue or purple - there's more air between you and the mountain so more blue light gets scattered toward your eyes. On other planets with different atmospheres the sky would look completly different colors. For example on Mars the sky is more of a butterscotch color during the day because of the iron oxide dust in it's atmosphere. The blue sky is really just an optical illusion created by our atmosphere interacting with sunlight, but it's one of the most beautifull natural phenomena we can observe every clear day.
+
+   - **Aspect Tested:**
+     - [Add your evaluation criteria here]
 
 This "vibe check" now serves as a baseline, of sorts, to help understand what holes your application has.
 
