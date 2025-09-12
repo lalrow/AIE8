@@ -107,13 +107,30 @@ Astronomy, one of humanity's oldest sciences, evolved from the need to navigate 
          - "You want exactly 12 apples and 9 oranges" repeats the question — not bad, but could be skipped.
        - **Overall Score: 96/100**
 
-
 5. Rewrite the following paragraph in a professional, formal tone…
 
 The sky appears blue because of something called Rayleigh scattering which happens when sunlight enters our atmosphere and interacts with tiny particles and gas molecules. When white light from the sun hits these small particles, it gets scattered in all directions but blue light has a shorter wavelength than other colors, so it gets scattered more than red yellow or green light. This is why we see blue during the day when we look up at the sky. The process is named after Lord Rayleigh who first explained it scientifically in the late 1800s. Sunlight actually contains all the colors of the rainbow mixed together, which you can see when light passes through a prism or when you see a rainbow after it rains. The atmosphere acts kind of like a prism scattering the different colors in different amounts. Blue and violet light get scattered the most because they have shorter wavelengths, but our eyes are more sensitive to blue than violet so we percieve the sky as blue rather than purple. During sunrise and sunset the sky often looks red or orange because the sunlight has to travel through more atmosphere to reach us, and most of the blue light gets scattered away before it reaches our eyes leaving mostly red and orange light. This is also why the sun itself looks more red or orange during these times. The same principal explains why distant mountains often look blue or purple - there's more air between you and the mountain so more blue light gets scattered toward your eyes. On other planets with different atmospheres the sky would look completly different colors. For example on Mars the sky is more of a butterscotch color during the day because of the iron oxide dust in it's atmosphere. The blue sky is really just an optical illusion created by our atmosphere interacting with sunlight, but it's one of the most beautifull natural phenomena we can observe every clear day.
 
    - **Aspect Tested:**
-     - [Add your evaluation criteria here]
+     - This task checks whether your system can rewrite text into a professional, formal tone, including:
+       - Correcting spelling, grammar, and punctuation.
+       - Improving sentence flow and coherence.
+       - Maintaining scientific accuracy.
+       - Elevating word choice for clarity and professionalism.
+     - **Scoring Breakdown**
+       - **Correction of Errors (30 pts) – 30/30**
+         - All intentional spelling mistakes ("percieve," "completly," etc.) were fixed.
+         - Grammar and punctuation issues cleaned up.
+       - **Tone & Style (30 pts) – 28/30**
+         - Tone is formal and professional throughout.
+         - Some sentences are a bit academic ("phenomenon known as… attributable to…") — professional, yes, but could be slightly lighter for accessibility.
+       - **Clarity & Flow (20 pts) – 19/20**
+         - Excellent structure: clear paragraphs, good transitions.
+         - A couple of sentences are long and dense, which could be simplified without losing professionalism.
+       - **Content Preservation (20 pts) – 19/20**
+         - Scientific content is intact and accurate.
+         - One or two phrases (e.g., "striking and beautiful natural phenomena") could have been kept simpler to match the original's spirit.
+
 
 This "vibe check" now serves as a baseline, of sorts, to help understand what holes your application has.
 
@@ -127,6 +144,19 @@ This "vibe check" now serves as a baseline, of sorts, to help understand what ho
 
 What are some limitations of vibe checking as an evaluation tool?
 ##### ✅ Answer:
+
+Vibe checking provides only a high-level overview and does not go into detail. As a result, it may hide realistic problems that show up during deeper testing. Some people may also wrongly assume that with a vibe check, the entire application has been fully tested.
+
+The vibe check is an informal evaluation of an LLM-powered app across different abilities such as explanation, summarization, creativity, reasoning, and rewriting. It helps spot catastrophic or obvious failures early, though it does not replace systematic evaluation.
+
+**Examples from this evaluation:**
+- When explaining object-oriented programming, the answer was mostly clear but lacked polish in closure.
+- In the astronomy summary, the key facts were captured, but some mythological context was reduced.
+- The robot story showed creativity and warmth, yet it could benefit from a small moment of conflict.
+- In the math packs problem, the reasoning was correct and well-structured, but still limited to a simple case.
+- The rewrite task cleaned up grammar and punctuation very well, though the tone leaned slightly academic.
+
+These examples show that while vibe checking is useful to surface immediate gaps, it cannot measure long-term reliability, fairness, or robustness of the system.
 
 ### 🚧 Advanced Build (OPTIONAL):
 
