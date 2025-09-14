@@ -206,6 +206,58 @@ When submitting your homework, provide the GitHub URL to the tracking branch (fo
 2. Document what you changed and the results you saw in the `Adjustments Made:` and `Results:` sections of the Advanced Build's Assignment #1
 3. Add, commit and push your additional modifications to this `README.md` file to your origin repository.
 
+#### 🏗️ Activity #1
+
+##### Adjustments Made:
+- **System Prompt Enhancement**: Improved the system prompt to make responses clearer and more structured.
+
+**Code Change:**
+```python
+# Before
+messages = [{"role": "system", "content": request.developer_message}]
+
+# After  
+messages = [{"role": "system", "content": "You are a helpful AI assistant. Always provide clear, accurate, and well-structured responses. When explaining concepts, use simple language and relatable examples. When summarizing, capture all key points concisely. When writing creatively, be imaginative and engaging. When solving problems, show your reasoning step-by-step. When rewriting text, maintain professional tone and correct all errors."}]
+```
+
+**All Key Aspects Covered:** The prompt addresses all the "Aspect Tested" criteria:
+- **Clarity**: "clear, accurate, and well-structured responses"
+- **Accessibility**: "use simple language and relatable examples"
+- **Accuracy**: "accurate" and "capture all key points"
+- **Creativity**: "be imaginative and engaging"
+- **Reasoning**: "show your reasoning step-by-step"
+- **Professional Tone**: "maintain professional tone and correct all errors"
+
+##### Results:
+
+1. **Object-Oriented Programming (OOP)**
+   - The new version added analogies (recipe vs cake, remote control)
+   - It explicitly listed the four pillars (encapsulation, inheritance, polymorphism, classes/objects)
+   - **Result**: Richer teaching value compared to the simpler old version
+
+2. **Astronomy Summary**
+   - The new version emphasized mythology and imagery (chained princess, faint smudge)
+   - It balanced science with storytelling
+   - **Result**: More engaging than the old factual, textbook-style summary
+
+3. **Robot Story**
+   - The new version used cinematic details (junkyard, lantern glow, storm)
+   - It shifted from abstract narration to a "show, don't tell" style
+   - **Result**: More immersive and emotional than the old version
+
+4. **Math Problem**
+   - Old version explained step-by-step with context; new version gave a concise solution
+   - New is cleaner and efficient but risks losing teaching depth
+   - **Result**: Better for quick answers, weaker for beginner guidance
+
+5. **Sky Rewrite (Rayleigh Scattering)**
+   - The new version broke long sentences into shorter, smoother ones
+   - It shifted phrasing to a more formal academic tone ("nineteenth century," "rainfall")
+   - It trimmed redundancy ("striking and beautiful" → "striking")
+   - **Result**: More polished, professional, and modern in style
+
+In Analysis.md file look for section "After Improvement - Round 1 " for answers after application improvement .
+
 When submitting your homework, provide the following on the form:
 + The GitHub URL to the tracking branch (for example: `s01-assignment`) you created on your AIE8 repo.
 + The public Vercel URL to your updated Challenge project on your AIE8 repo.
