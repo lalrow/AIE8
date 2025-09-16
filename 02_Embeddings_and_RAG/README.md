@@ -44,12 +44,13 @@ Run the notebook!
 - Run the notebook
 - When you're finished with augmentations to your RAG application - vibe check it against the old one - see if you can "feel the improvement!
 - Record a Loom walking through the notebook, the questions in the notebook, and your addition!
-
 # Share 🚀
 - Show your App in a loom video and explain the diagram
 - Make a social media post about your final application and tag @AIMakerspace
 - Share 3 lessons learned
 - Share 3 lessons not learned
+
+
 
 Here's a template to get your post started!
 

@@ -15,11 +15,21 @@ def cosine_similarity(vector_a: np.array, vector_b: np.array) -> float:
 
 class VectorDatabase:
     def __init__(self, embedding_model: EmbeddingModel = None):
-        self.vectors = defaultdict(np.array)
+        self.vectors = defaultdict(dict)
         self.embedding_model = embedding_model or EmbeddingModel()
 
-    def insert(self, key: str, vector: np.array) -> None:
-        self.vectors[key] = vector
+    def insert(self, key: str, vector: np.array, metadata: dict = None) -> None:
+        self.vectors[key] = {
+            'vector': vector,
+            'metadata': metadata or {}
+        }
+    
+    def insert_with_metadata(self, key: str, vector: np.array, metadata: dict) -> None:
+        """Insert a vector with metadata for better tracking"""
+        self.vectors[key] = {
+            'vector': vector,
+            'metadata': metadata
+        }
 
     def search(
         self,
@@ -28,8 +38,8 @@ class VectorDatabase:
         distance_measure: Callable = cosine_similarity,
     ) -> List[Tuple[str, float]]:
         scores = [
-            (key, distance_measure(query_vector, vector))
-            for key, vector in self.vectors.items()
+            (key, distance_measure(query_vector, data['vector']))
+            for key, data in self.vectors.items()
         ]
         return sorted(scores, key=lambda x: x[1], reverse=True)[:k]
 
@@ -45,12 +55,23 @@ class VectorDatabase:
         return [result[0] for result in results] if return_as_text else results
 
     def retrieve_from_key(self, key: str) -> np.array:
-        return self.vectors.get(key, None)
+        data = self.vectors.get(key, None)
+        return data['vector'] if data else None
+    
+    def get_metadata(self, key: str) -> dict:
+        """Get metadata for a specific key"""
+        data = self.vectors.get(key, None)
+        return data['metadata'] if data else {}
 
     async def abuild_from_list(self, list_of_text: List[str]) -> "VectorDatabase":
         embeddings = await self.embedding_model.async_get_embeddings(list_of_text)
-        for text, embedding in zip(list_of_text, embeddings):
-            self.insert(text, np.array(embedding))
+        for i, (text, embedding) in enumerate(zip(list_of_text, embeddings)):
+            metadata = {
+                'chunk_id': i,
+                'text_length': len(text),
+                'source': 'document_chunk'
+            }
+            self.insert(text, np.array(embedding), metadata)
         return self
 
 
