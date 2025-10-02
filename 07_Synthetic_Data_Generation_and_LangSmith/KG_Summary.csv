@@ -1,0 +1,204 @@
+page,title,chunk_length,preview
+0.0,How People Use ChatGPT,1672,"NBER WORKING PAPER SERIES
+HOW PEOPLE USE CHATGPT
+Aaron Chatterji
+Thomas Cunningh"
+1.0,How People Use ChatGPT,2051,"How People Use ChatGPT
+Aaron Chatterji, Thomas Cunningham, David J. Deming, Zoe "
+2.0,How People Use ChatGPT,3823,"1
+Introduction
+ChatGPT launched in November 2022. By July 2025, 18 billion messa"
+3.0,How People Use ChatGPT,4164,"Month
+Non-Work (M)
+(%)
+Work (M)
+(%)
+Total Messages (M)
+Jun 2024
+238
+53%
+213
+47%
+"
+4.0,How People Use ChatGPT,3965,"to Games and Role Play. In contrast, Zao-Sanders (2025) estimates that Therapy/C"
+5.0,How People Use ChatGPT,3635,"Doing, and that Asking messages are consistently rated as having higher quality "
+6.0,How People Use ChatGPT,2858,Lambert et al. (2024)). This second stage also typically includes a number of “s
+7.0,How People Use ChatGPT,2895,"Enterprise, Education).
+For each user and day, this dataset reports the total nu"
+8.0,How People Use ChatGPT,2323,Figure 1: Illustration of Privacy-Preserving Automated Classification Pipeline (
+9.0,How People Use ChatGPT,2940,We validated each of the classification prompts by comparing model classificatio
+10.0,How People Use ChatGPT,2303,Figure 2: Illustration of Aggregated Employment Category Analysis via a Data Cle
+11.0,How People Use ChatGPT,2195,Other papers have analyzed digital behavior and demographic data; we mention a f
+12.0,How People Use ChatGPT,1669,"Figure 4: Daily message volumes from ChatGPT consumer plans (Free, Plus, Pro), s"
+13.0,How People Use ChatGPT,1523,"Figure 5: Daily messages sent per weekly active user, split by sign-up cohort. S"
+14.0,How People Use ChatGPT,1440,Figure 6: The solid black line represents the probability that a messages on a g
+15.0,How People Use ChatGPT,2425,"Topic
+Conversation Category
+Computer Programming
+Multimedia
+Create an Image
+Anal"
+16.0,How People Use ChatGPT,863,Figure 7: Share of consumer ChatGPT messages broken down by high level conversat
+17.0,How People Use ChatGPT,2086,suggests that most user Writing conversations with ChatGPT are requests to modif
+18.0,How People Use ChatGPT,3097,technology that can be used in many different ways. In order to learn more about
+19.0,How People Use ChatGPT,1205,"Figure 10: Breakdown of Conversation Topics by Asking/Doing/Expressing category,"
+20.0,How People Use ChatGPT,2087,Figure 12 presents changes over time in the composition of messages by user inte
+21.0,How People Use ChatGPT,2144,"Figure 13: Shares of Asking, Doing, and Expressing messages split by work vs. no"
+22.0,How People Use ChatGPT,453,Figure 14: GWA Shares of 1.1M ChatGPT Messages. Messages are classified as perta
+23.0,How People Use ChatGPT,608,"Figure 15:
+GWA Shares of approximately 366,000 Work-Classified Messages.
+Message"
+24.0,How People Use ChatGPT,1888,"5.5
+Quality of Interactions
+We additionally used automated classifiers to study "
+25.0,How People Use ChatGPT,474,Figure 17: Average Good to Bad ratio for user interactions by Conversation Topic
+26.0,How People Use ChatGPT,3051,"6
+Who Uses ChatGPT
+In this section we report basic descriptive facts about who u"
+27.0,How People Use ChatGPT,982,Figure 18: Breakdown of weekly active users by typically masculine and typically
+28.0,How People Use ChatGPT,2180,"Figure 20: Likelihood that a message is work related, conditioned on self-report"
+29.0,How People Use ChatGPT,2192,Figure 21: ChatGPT Weekly Active Users as Share of Internet Population vs GDP de
+30.0,How People Use ChatGPT,117,"Panel A. Work Related
+Panel B1. Asking.
+Panel B2. Doing.
+Panel B3. Expressing.
+F"
+31.0,How People Use ChatGPT,1228,"Panel C1. Writing.
+Panel C2. Technical Help.
+Panel C3. Seeking Information.
+Pane"
+32.0,How People Use ChatGPT,3898,"6.5
+Variation by Occupation
+Figure 23 presents variation in ChatGPT usage by use"
+33.0,How People Use ChatGPT,1255,We find remarkable similarity across occupations in how ChatGPT is used at work.
+34.0,How People Use ChatGPT,95,"Panel A. Work Related
+Panel B1. Asking.
+Panel B2. Doing.
+Figure 23: (continued o"
+35.0,How People Use ChatGPT,559,"Panel C1. Writing.
+Panel C2. Technical Help.
+Panel C3. Seeking Information.
+Pane"
+36.0,How People Use ChatGPT,1704,"Occupation Group
+Documenting/
+Recording
+Information
+Making
+Decisions
+And Solving"
+37.0,How People Use ChatGPT,3420,"7
+Conclusion
+This paper studies the rapid growth of ChatGPT, which launched in N"
+38.0,How People Use ChatGPT,2485,"References
+Acemoglu, Daron, “The Simple Macroeconomics of AI,” Technical Report "
+39.0,How People Use ChatGPT,2679,"Garicano, Luis, “Hierarchies and the Organization of Knowledge in Production,” J"
+40.0,How People Use ChatGPT,2169,"Liu, Nelson F., Kevin Lin, John Hewitt, Ashwin Paranjape, Michele Bevilacqua, Fa"
+41.0,How People Use ChatGPT,1031,"Vaswani, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan "
+42.0,How People Use ChatGPT,2079,"A
+Appendix: Classifier Prompts
+A.1
+Work/Non Work
+You are an internal tool that c"
+43.0,How People Use ChatGPT,1620,"A.3
+Conversation Topic
+-----
+You are an internal tool that classifies a message "
+44.0,How People Use ChatGPT,1706,"- **cooking_and_recipes**: Seeking recipes, cooking instructions, or culinary
+ad"
+45.0,How People Use ChatGPT,1431,"If the conversation has multiple distinct capabilities, choose the one that is t"
+46.0,How People Use ChatGPT,1384,"- ""My car won’t start; what should I try?""
+- ""Comment faire pour me connecter `a"
+47.0,How People Use ChatGPT,1198,"- ""Escribe un programa en Python que cuente las palabras en un texto.""
+- ""Explai"
+48.0,How People Use ChatGPT,1261,"- ""Whats your favorite animal?""
+- ""Do you like ice cream?""
+**relationships_and_p"
+49.0,How People Use ChatGPT,1393,"- ""Soy ciega, ¿puedes describirme esta foto?""
+- ""Interpret the data shown in thi"
+50.0,How People Use ChatGPT,1781,"A.4
+O*NET IWA classification
+Note we only include a few of the full list of 332 "
+51.0,How People Use ChatGPT,1309,"iwa_id: 4.A.2.a.1.I07
+iwa_explanation: The user is interested in about comparing"
+52.0,How People Use ChatGPT,462,"# Full list of all 332 IWA IDs and Descriptions:
+4.A.1.a.1.I01
+Study details of "
+53.0,How People Use ChatGPT,2594,"B
+Appendix: Classifier Validation
+To assess the performance of our classifiers, "
+54.0,How People Use ChatGPT,2404,"If the conversation changes topic just use the topic of
+the final message from t"
+55.0,How People Use ChatGPT,135,"Figure 25: Agreement between Model and Human Plurality.
+Figure 26: Agreement Bet"
+56.0,How People Use ChatGPT,146,"Figure 27: Per-label Bias, Model vs Plurality for Asking/Doing/Expressing
+Figure"
+57.0,How People Use ChatGPT,1976,"Figure 29: Bias Between Model and Plurality for Convo-Classifier
+B.1.4
+O*NET Int"
+58.0,How People Use ChatGPT,143,"Figure 30: Agreement Between Model and Plurality for Interaction Quality
+Figure "
+59.0,How People Use ChatGPT,956,"with user experience, we link model predictions to voluntary feedback on assista"
+60.0,How People Use ChatGPT,633,"C
+Appendix: ChatGPT Timeline
+date
+event
+2022-11-30
+Public launch of ChatGPT as a"
+61.0,How People Use ChatGPT,495,"D
+Appendix: Occupational Results
+D.0.1
+GWA Breakdowns by Occupation
+Figure 33: C"
+62.0,How People Use ChatGPT,440,"Figure 34: Classified Work-Related Queries, Organized by Generalized Work Activi"
+63.0,How People Use ChatGPT,1479,"Occupation Group
+Documenting/
+Recording
+Information
+Making
+Decisions
+And Solving"
+,,1,1
+,,3821,"Introduction ChatGPT launched in November 2022. By July 2025, 18 billion message"
+,,116,Month Non-Work (M) (%) Work (M) (%) Total Messages (M) Jun 2024 238 53% 213 47% 
+,,4047,"Table 1: ChatGPT daily message counts (millions), broken down by likely work-rel"
+4.0,How People Use ChatGPT,3965,"to Games and Role Play. In contrast, Zao-Sanders (2025) estimates that Therapy/C"
+5.0,How People Use ChatGPT,3635,"Doing, and that Asking messages are consistently rated as having higher quality "
+6.0,How People Use ChatGPT,2858,Lambert et al. (2024)). This second stage also typically includes a number of “s
+7.0,How People Use ChatGPT,2895,"Enterprise, Education).
+For each user and day, this dataset reports the total nu"
+9.0,How People Use ChatGPT,2940,We validated each of the classification prompts by comparing model classificatio
+11.0,How People Use ChatGPT,2195,Other papers have analyzed digital behavior and demographic data; we mention a f
+15.0,How People Use ChatGPT,2425,"Topic
+Conversation Category
+Computer Programming
+Multimedia
+Create an Image
+Anal"
+18.0,How People Use ChatGPT,3097,technology that can be used in many different ways. In order to learn more about
+26.0,How People Use ChatGPT,3051,"6
+Who Uses ChatGPT
+In this section we report basic descriptive facts about who u"
+,,3,6.5
+,,3894,Variation by Occupation Figure 23 presents variation in ChatGPT usage by user oc
+36.0,How People Use ChatGPT,1704,"Occupation Group
+Documenting/
+Recording
+Information
+Making
+Decisions
+And Solving"
+,,1,7
+,,3418,"Conclusion This paper studies the rapid growth of ChatGPT, which launched in Nov"
+38.0,How People Use ChatGPT,2485,"References
+Acemoglu, Daron, “The Simple Macroeconomics of AI,” Technical Report "
+39.0,How People Use ChatGPT,2679,"Garicano, Luis, “Hierarchies and the Organization of Knowledge in Production,” J"
+42.0,How People Use ChatGPT,2079,"A
+Appendix: Classifier Prompts
+A.1
+Work/Non Work
+You are an internal tool that c"
+53.0,How People Use ChatGPT,2594,"B
+Appendix: Classifier Validation
+To assess the performance of our classifiers, "
+54.0,How People Use ChatGPT,2404,"If the conversation changes topic just use the topic of
+the final message from t"
