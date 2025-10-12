@@ -1,0 +1,44 @@
+[
+  {
+    "Retriever": "Ensemble",
+    "QA_Score": null,
+    "Helpfulness": 1.0,
+    "Dopeness": 0.6,
+    "Latency": 0.0
+  },
+  {
+    "Retriever": "ParentDoc",
+    "QA_Score": null,
+    "Helpfulness": 0.8,
+    "Dopeness": 0.4,
+    "Latency": 0.0
+  },
+  {
+    "Retriever": "MultiQuery",
+    "QA_Score": null,
+    "Helpfulness": 1.0,
+    "Dopeness": 0.6,
+    "Latency": 0.0
+  },
+  {
+    "Retriever": "Rerank",
+    "QA_Score": null,
+    "Helpfulness": 0.8,
+    "Dopeness": 0.6,
+    "Latency": 0.0
+  },
+  {
+    "Retriever": "BM25",
+    "QA_Score": null,
+    "Helpfulness": 0.8,
+    "Dopeness": 0.4,
+    "Latency": 0.0
+  },
+  {
+    "Retriever": "Naive",
+    "QA_Score": null,
+    "Helpfulness": 0.8,
+    "Dopeness": 0.6,
+    "Latency": 0.0
+  }
+]

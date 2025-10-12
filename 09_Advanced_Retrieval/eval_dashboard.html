@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retriever Evaluation Dashboard - Session 9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+        .metric-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .metric-card h3 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0;
+        }
+        .metric-card p {
+            margin: 0;
+            opacity: 0.9;
+        }
+        table {
+            margin-top: 1rem;
+        }
+        .table-hover tbody tr:hover {
+            background-color: #f8f9ff;
+        }
+        .best-score {
+            background-color: #d4edda !important;
+            font-weight: bold;
+        }
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 2rem 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #dee2e6;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Retriever Evaluation Dashboard</h1>
+        <p class="lead">Session 9: Advanced Retrieval with LangChain - RAGAS Metrics</p>
+        
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="metric-card">
+                    <h3>6</h3>
+                    <p>Retrievers Evaluated</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="metric-card">
+                    <h3>3</h3>
+                    <p>RAGAS Metrics</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="metric-card">
+                    <h3>ParentDoc</h3>
+                    <p>Top Performer</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2>📋 RAGAS Evaluation Results</h2>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Rank</th>
+                        <th>Retriever</th>
+                        <th>Context Precision</th>
+                        <th>Context Recall</th>
+                        <th>Faithfulness</th>
+                        <th>Latency (s)</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="best-score">
+                        <td><strong>1</strong></td>
+                        <td><strong>ParentDoc</strong></td>
+                        <td>1.000</td>
+                        <td>0.800</td>
+                        <td>1.000</td>
+                        <td>47.72</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>2</strong></td>
+                        <td><strong>BM25</strong></td>
+                        <td>0.450</td>
+                        <td>0.853</td>
+                        <td>0.975</td>
+                        <td>26.35</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>3</strong></td>
+                        <td><strong>Ensemble</strong></td>
+                        <td>0.749</td>
+                        <td>0.800</td>
+                        <td>0.963</td>
+                        <td>52.69</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>4</strong></td>
+                        <td><strong>MultiQuery</strong></td>
+                        <td>0.854</td>
+                        <td>0.800</td>
+                        <td>0.959</td>
+                        <td>82.84</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>5</strong></td>
+                        <td><strong>Naive</strong></td>
+                        <td>0.858</td>
+                        <td>0.800</td>
+                        <td>0.957</td>
+                        <td>50.15</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>6</strong></td>
+                        <td><strong>Rerank</strong></td>
+                        <td>1.000</td>
+                        <td>0.620</td>
+                        <td>0.953</td>
+                        <td>109.14</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        
+        <h2 class="mt-5">📈 Performance Comparison</h2>
+        
+        <div class="chart-container">
+            <canvas id="metricsChart"></canvas>
+        </div>
+        
+        <div class="chart-container">
+            <canvas id="latencyChart"></canvas>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Generated from:</strong> ragas_eval_results.json</p>
+            <p><strong>Session 9:</strong> Advanced Retrieval with LangChain</p>
+            <p><strong>Dataset:</strong> Kids Science PDF (Grade 3)</p>
+        </div>
+    </div>
+    
+    <script>
+        // Metrics Comparison Chart
+        const ctx1 = document.getElementById('metricsChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ["ParentDoc", "BM25", "Ensemble", "MultiQuery", "Naive", "Rerank"],
+                datasets: [
+                    {
+                        label: 'Context Precision',
+                        data: [1.0, 0.45, 0.7492735641, 0.8535086981, 0.8583049886, 1.0],
+                        backgroundColor: 'rgba(102, 126, 234, 0.8)',
+                    },
+                    {
+                        label: 'Context Recall',
+                        data: [0.8, 0.8528571429, 0.8, 0.8, 0.8, 0.6195238095],
+                        backgroundColor: 'rgba(118, 75, 162, 0.8)',
+                    },
+                    {
+                        label: 'Faithfulness',
+                        data: [1.0, 0.975, 0.9625, 0.9589285714, 0.9571428571, 0.9529411765],
+                        backgroundColor: 'rgba(237, 100, 166, 0.8)',
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'RAGAS Metrics by Retriever',
+                        font: { size: 18 }
+                    },
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 1.0,
+                        title: {
+                            display: true,
+                            text: 'Score'
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Latency Chart
+        const ctx2 = document.getElementById('latencyChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ["ParentDoc", "BM25", "Ensemble", "MultiQuery", "Naive", "Rerank"],
+                datasets: [{
+                    label: 'Latency (seconds)',
+                    data: [47.72, 26.35, 52.69, 82.84, 50.15, 109.14],
+                    backgroundColor: 'rgba(255, 159, 64, 0.8)',
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Evaluation Latency by Retriever',
+                        font: { size: 18 }
+                    },
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Time (seconds)'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
