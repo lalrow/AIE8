@@ -1,44 +1,56 @@
 [
   {
     "Retriever": "Ensemble",
-    "QA_Score": null,
+    "Correctness": 0.8,
     "Helpfulness": 1.0,
     "Dopeness": 0.6,
-    "Latency": 0.0
+    "Latency": 3.5069387999999995,
+    "Tokens": 22877,
+    "Cost": 0.000273
   },
   {
     "Retriever": "ParentDoc",
-    "QA_Score": null,
+    "Correctness": 0.8,
     "Helpfulness": 0.8,
     "Dopeness": 0.4,
-    "Latency": 0.0
+    "Latency": 1.4934724000000001,
+    "Tokens": 13550,
+    "Cost": 0.000154
   },
   {
     "Retriever": "MultiQuery",
-    "QA_Score": null,
+    "Correctness": 0.8,
     "Helpfulness": 1.0,
     "Dopeness": 0.6,
-    "Latency": 0.0
+    "Latency": 2.6057634,
+    "Tokens": 9032,
+    "Cost": 0.000282
   },
   {
     "Retriever": "Rerank",
-    "QA_Score": null,
+    "Correctness": 0.8,
     "Helpfulness": 0.8,
     "Dopeness": 0.6,
-    "Latency": 0.0
+    "Latency": 1.4947246,
+    "Tokens": 2348,
+    "Cost": 0.000182
   },
   {
     "Retriever": "BM25",
-    "QA_Score": null,
+    "Correctness": 0.8,
     "Helpfulness": 0.8,
     "Dopeness": 0.4,
-    "Latency": 0.0
+    "Latency": 0.8141175,
+    "Tokens": 2845,
+    "Cost": 0.000146
   },
   {
     "Retriever": "Naive",
-    "QA_Score": null,
+    "Correctness": 0.8,
     "Helpfulness": 0.8,
     "Dopeness": 0.6,
-    "Latency": 0.0
+    "Latency": 1.4905846,
+    "Tokens": 6128,
+    "Cost": 0.000186
   }
 ]

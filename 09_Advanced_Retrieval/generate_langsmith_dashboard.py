@@ -39,20 +39,24 @@ def main():
     for r in data:
         rows.append({
             "Retriever": r.get("Retriever", "Unknown"),
-            "QA_Score": r.get("QA_Score"),
+            "Correctness": r.get("Correctness"),
             "Helpfulness": r.get("Helpfulness"),
             "Dopeness": r.get("Dopeness"),
             "Latency": r.get("Latency"),
+            "Tokens": r.get("Tokens"),
+            "Cost": r.get("Cost"),
         })
 
-    # Sort by QA_Score desc (fallback to 0)
-    rows.sort(key=lambda x: (x["QA_Score"] if isinstance(x["QA_Score"], (int, float)) else -1), reverse=True)
+    # Sort by Correctness desc (fallback to 0)
+    rows.sort(key=lambda x: (x["Correctness"] if isinstance(x["Correctness"], (int, float)) else -1), reverse=True)
 
     retrievers = [r["Retriever"] for r in rows]
-    qa = [r["QA_Score"] if r["QA_Score"] is not None else 0 for r in rows]
+    correctness = [r["Correctness"] if r["Correctness"] is not None else 0 for r in rows]
     helpful = [r["Helpfulness"] if r["Helpfulness"] is not None else 0 for r in rows]
     dope = [r["Dopeness"] if r["Dopeness"] is not None else 0 for r in rows]
     latency = [r["Latency"] if r["Latency"] is not None else 0 for r in rows]
+    tokens = [r["Tokens"] if r["Tokens"] is not None else 0 for r in rows]
+    cost = [r["Cost"] if r["Cost"] is not None else 0 for r in rows]
 
     top = rows[0]["Retriever"] if rows else "N/A"
 
@@ -84,16 +88,15 @@ def main():
     <p class=\"lead\">Session 9: Advanced Retrieval - LangSmith QA/Helpfulness/Dopeness</p>
 
     <div class=\"row mb-4\">
-      <div class=\"col-md-4\"><div class=\"metric-card\"><h3>{len(rows)}</h3><p>Retrievers Evaluated</p></div></div>
-      <div class=\"col-md-4\"><div class=\"metric-card\"><h3>3</h3><p>LangSmith Metrics</p></div></div>
-      <div class=\"col-md-4\"><div class=\"metric-card\"><h3>{top}</h3><p>Top by QA Score</p></div></div>
+      <div class=\"col-md-6\"><div class=\"metric-card\"><h3>{len(rows)}</h3><p>Retrievers Evaluated</p></div></div>
+      <div class=\"col-md-6\"><div class=\"metric-card\"><h3>3</h3><p>LangSmith Metrics</p></div></div>
     </div>
 
     <h2>📋 LangSmith Results</h2>
     <div class=\"table-responsive\">
       <table class=\"table table-hover table-striped\">
         <thead class=\"table-dark\"><tr>
-          <th>Rank</th><th>Retriever</th><th>QA Score</th><th>Helpfulness</th><th>Dopeness</th><th>Latency (s)</th>
+          <th>Rank</th><th>Retriever</th><th>Correctness</th><th>Helpfulness</th><th>Dopeness</th><th>Latency (s)</th><th>Tokens</th><th>Cost ($)</th>
         </tr></thead>
         <tbody>
     """
@@ -103,8 +106,10 @@ def main():
         html += (
             f"<tr class=\"{cls}\"><td><strong>{i}</strong></td>"
             f"<td><strong>{r['Retriever']}</strong></td>"
-            f"<td>{fmt(r['QA_Score'])}</td><td>{fmt(r['Helpfulness'])}</td>"
-            f"<td>{fmt(r['Dopeness'])}</td><td>{fmt(r['Latency'], 2)}</td></tr>"
+            f"<td>{fmt(r['Correctness'])}</td><td>{fmt(r['Helpfulness'])}</td>"
+            f"<td>{fmt(r['Dopeness'])}</td><td>{fmt(r['Latency'], 2)}</td>"
+            f"<td>{r['Tokens'] if r['Tokens'] else 'N/A'}</td>"
+            f"<td>{fmt(r['Cost'], 6)}</td></tr>"
         )
 
     html += f"""
@@ -115,7 +120,14 @@ def main():
     <h2 class=\"mt-5\">📈 Score Comparison</h2>
     <div class=\"chart-container\"><canvas id=\"scoreChart\"></canvas></div>
 
+    <h2 class=\"mt-5\">⏱️ Latency Comparison</h2>
     <div class=\"chart-container\"><canvas id=\"latencyChart\"></canvas></div>
+
+    <h2 class=\"mt-5\">🪙 Token Usage</h2>
+    <div class=\"chart-container\"><canvas id=\"tokenChart\"></canvas></div>
+
+    <h2 class=\"mt-5\">💰 Cost Comparison</h2>
+    <div class=\"chart-container\"><canvas id=\"costChart\"></canvas></div>
 
     <div class=\"footer\">
       <p><strong>Generated from:</strong> langsmith_eval_results.json</p>
@@ -125,15 +137,17 @@ def main():
 
   <script>
     const labels = {json.dumps(retrievers)};
-    const qa = {json.dumps(qa)};
+    const correctness = {json.dumps(correctness)};
     const helpful = {json.dumps(helpful)};
     const dope = {json.dumps(dope)};
     const latency = {json.dumps(latency)};
+    const tokens = {json.dumps(tokens)};
+    const cost = {json.dumps(cost)};
 
     new Chart(document.getElementById('scoreChart').getContext('2d'), {{
       type: 'bar',
       data: {{ labels: labels, datasets: [
-        {{ label: 'QA Score', data: qa, backgroundColor: 'rgba(17, 153, 142, 0.85)' }},
+        {{ label: 'Correctness', data: correctness, backgroundColor: 'rgba(17, 153, 142, 0.85)' }},
         {{ label: 'Helpfulness', data: helpful, backgroundColor: 'rgba(56, 239, 125, 0.85)' }},
         {{ label: 'Dopeness', data: dope, backgroundColor: 'rgba(80, 200, 120, 0.85)' }}
       ]}},
@@ -143,6 +157,18 @@ def main():
     new Chart(document.getElementById('latencyChart').getContext('2d'), {{
       type: 'bar',
       data: {{ labels: labels, datasets: [{{ label: 'Latency (s)', data: latency, backgroundColor: 'rgba(255, 159, 64, 0.85)' }}] }},
+      options: {{ responsive: true, maintainAspectRatio: false, scales: {{ y: {{ beginAtZero: true }} }} }}
+    }});
+
+    new Chart(document.getElementById('tokenChart').getContext('2d'), {{
+      type: 'bar',
+      data: {{ labels: labels, datasets: [{{ label: 'Tokens', data: tokens, backgroundColor: 'rgba(54, 162, 235, 0.85)' }}] }},
+      options: {{ responsive: true, maintainAspectRatio: false, scales: {{ y: {{ beginAtZero: true }} }} }}
+    }});
+
+    new Chart(document.getElementById('costChart').getContext('2d'), {{
+      type: 'bar',
+      data: {{ labels: labels, datasets: [{{ label: 'Cost ($)', data: cost, backgroundColor: 'rgba(255, 99, 132, 0.85)' }}] }},
       options: {{ responsive: true, maintainAspectRatio: false, scales: {{ y: {{ beginAtZero: true }} }} }}
     }});
   </script>
