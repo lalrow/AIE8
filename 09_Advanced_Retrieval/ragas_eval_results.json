@@ -1,44 +1,44 @@
 [
   {
-    "Retriever":"ParentDoc",
-    "ContextPrecision":1.0,
-    "ContextRecall":0.8,
-    "Faithfulness":1.0,
-    "Latency(s)":47.72
-  },
-  {
-    "Retriever":"BM25",
-    "ContextPrecision":0.45,
-    "ContextRecall":0.8528571429,
-    "Faithfulness":0.975,
-    "Latency(s)":26.35
-  },
-  {
     "Retriever":"Ensemble",
-    "ContextPrecision":0.7492735641,
-    "ContextRecall":0.8,
-    "Faithfulness":0.9625,
-    "Latency(s)":52.69
+    "ContextPrecision":0.6917682479,
+    "ContextRecall":1.0,
+    "Faithfulness":0.9,
+    "Latency(s)":205.2
   },
   {
     "Retriever":"MultiQuery",
-    "ContextPrecision":0.8535086981,
-    "ContextRecall":0.8,
-    "Faithfulness":0.9589285714,
-    "Latency(s)":82.84
+    "ContextPrecision":0.768029933,
+    "ContextRecall":1.0,
+    "Faithfulness":0.8587301587,
+    "Latency(s)":49.18
+  },
+  {
+    "Retriever":"ParentDoc",
+    "ContextPrecision":1.0,
+    "ContextRecall":1.0,
+    "Faithfulness":0.8555555556,
+    "Latency(s)":36.08
   },
   {
     "Retriever":"Naive",
-    "ContextPrecision":0.8583049886,
-    "ContextRecall":0.8,
-    "Faithfulness":0.9571428571,
-    "Latency(s)":50.15
+    "ContextPrecision":0.8315277778,
+    "ContextRecall":1.0,
+    "Faithfulness":0.7916666667,
+    "Latency(s)":47.7
   },
   {
     "Retriever":"Rerank",
-    "ContextPrecision":1.0,
-    "ContextRecall":0.6195238095,
-    "Faithfulness":0.9529411765,
-    "Latency(s)":109.14
+    "ContextPrecision":0.8666666666,
+    "ContextRecall":0.8,
+    "Faithfulness":0.7333333333,
+    "Latency(s)":106.86
+  },
+  {
+    "Retriever":"BM25",
+    "ContextPrecision":0.4,
+    "ContextRecall":0.35,
+    "Faithfulness":0.2,
+    "Latency(s)":15.22
   }
 ]
