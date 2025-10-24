@@ -39,7 +39,12 @@ Run the repository and complete the following:
 Compare the `agent` and `agent_helpful` assistants defined in `langgraph.json`. Where does the helpfulness evaluator fit in the graph, and under what condition should execution route back to the agent vs. terminate?
 
 ##### ✅ Answer:
-_(enter answer here)_
+The main difference between the agent and agent helpful assistants is that the helpful one has an extra step called the helpfulness evaluator. After the agent gives an answer, this evaluator checks if the answer is helpful or not. If the helpfulness is “yes,” the run ends. If it’s “no,” the flow goes back to the agent so it can try again.
+
+Example:- When asked a quiz. What is photosynthesis? 
+The student says, “Photosynthesis releases oxygen.”
+The model replies, “Yes, plants take in carbon dioxide and release oxygen.”
+That answer is partly right, but it doesn’t explain what photosynthesis actually is or how the process works, so it’s not very helpful.
 
 #### 🏗️ Activity #1 Debugging A Graph
 
