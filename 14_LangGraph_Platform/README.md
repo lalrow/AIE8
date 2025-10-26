@@ -50,12 +50,37 @@ That answer is partly right, but it doesn’t explain what photosynthesis actual
 
 Select the `agent_with_helpfulness` and set one or more interrupts (at least one `Before` and one `After`). Try changing values and continuing the turn. 
 
+
 #### ❓ Question 2:
 
 What are your thoughts on when you would use a Before interrupt vs. an After interrupt?
 
-##### ✅ Answer:
-_(enter answer here)_
+##### ✅ Answer:  
+
+| **Interrupt** | **Use-Case** |
+|:--|:--|
+| **Before** | Inspect or override inputs before execution (e.g., modify prompt variables) |
+| **After** | Validate or approve outputs before the graph continues (e.g., human safety review) |
+
+---
+
+**As shown in the video:**  
+Below are some simple classroom-style examples from the kids’ tutor use case 👇  
+
+- **Example 1 – Guessing student:**  
+  The child keeps giving random answers about *pollination*.  
+  The teacher adds a **Before interrupt** to see the student’s last two tries and adjust the next hint before the agent runs.  
+
+- **Example 2 – Reading-level check:**  
+  The model’s response sounds too complex for Grade 3.  
+  An **After interrupt** checks readability and sends it back for simplification if it’s too hard.  
+
+- **Example 3 – Photosynthesis misunderstanding:**  
+  The student says, “Photosynthesis releases oxygen.”  
+  The model replies, “Yes, plants take in carbon dioxide and release oxygen.”  
+  That’s correct but not helpful—so an **After interrupt** flags it and routes it back to the agent to explain *how* sunlight and leaves help make food.  
+
+
 
 
 
