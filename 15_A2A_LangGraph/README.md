@@ -86,15 +86,20 @@ Do this by creating a Simple Agent that can make API calls to the 🤖Agent Node
 
 What are the core components of an `AgentCard`?
 
-##### ✅ Answer:
+##### ✅ Answer:  
 
+An AgentCard exposes an agent’s communication mechanism and capabilities. It defines how other agents can safely interact with it by describing its input and output modes, skills, and overall abilities. It also outlines the message formats and response structures, making communication predictable and consistent across different agents or systems.
 <br />
 
 ### ❓ Question #2:
 
 Why is A2A (and other such protocols) important in your own words?
 
-##### ✅ Answer:
+##### ✅ Answer:  
+
+When two agents are built on different frameworks like LangGraph and CrewAI, it’s cleaner to connect them using A2A. A2A lets a remote server keep its interface hidden so it doesn’t need to show internal details. It also means you can reuse someone else’s agent instead of building everything again. It gives a common way for different systems or companies to talk to each other. Even though LangGraph can wrap another agent as a tool inside CrewAI, A2A makes that connection more direct and standard.
+
+
 
 <br /><br />
 
