@@ -1,0 +1,11 @@
+{
+  "agent testing": {
+    "simple_agent": {
+      "query": "What are the common repayment timelines for California?",
+      "response_preview": "Common repayment timelines for student loans in California generally align with federal student loan repayment plans...",
+      "messages_count": 6,
+      "model": "gpt-4.1-mini",
+      "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+    }
+  }
+}

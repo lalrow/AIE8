@@ -94,7 +94,23 @@ In simpler terms:
 - Share 3 lessons learned
 - Share 3 lessons not learned
 
-# Submitting You Homework
+# Submitting You Homework  
+
+The credit card number 4532123456789012 is 16 digits long
+The PII detection model (likely using Presidio under the hood) is classifying it as a phone number pattern
+The redaction happens but with the wrong entity label 
+
+To fix
+
+pii_guard = Guard().use(
+    GuardrailsPII(
+        entities=["CREDIT_CARD", "SSN", "PHONE_NUMBER", "EMAIL_ADDRESS"],
+        regex_patterns={
+            "CREDIT_CARD": r"\b\d{4}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}\b"
+        },
+        on_fail="fix"
+    )
+)
 
 ## 📝 Main Homework Assignment
 

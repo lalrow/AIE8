@@ -1,0 +1,16 @@
+{
+  "cache performance testing": {
+    "first_call": {
+      "label": "cache miss",
+      "response_preview": "This document is about the Direct Loan Program, which includes information on federal student loans such as loan forgiveness, deferment, forbearance, entrance counseling, default prevention plans, loa...",
+      "time_seconds": 3.48
+    },
+    "second_call": {
+      "label": "cache hit",
+      "response_preview": "This document is about the Direct Loan Program, which includes information on federal student loans such as loan forgiveness, deferment, forbearance, entrance counseling, default prevention plans, loa...",
+      "time_seconds": 1.44
+    },
+    "cache_speedup_x": 2.4,
+    "retriever_extracted": true
+  }
+}
