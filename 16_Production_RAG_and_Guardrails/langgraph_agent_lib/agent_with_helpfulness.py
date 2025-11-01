@@ -62,7 +62,16 @@ def get_default_tools(rag_chain: Optional[ProductionRAGChain] = None) -> list:
 def call_model(model_with_tools):
     """Return callable node for agent model."""
     def _inner(state: AgentState) -> Dict[str, Any]:
+        from langchain_core.messages import SystemMessage
+        
         messages = state["messages"]
+        # Inject system instruction to force tool usage
+        if not any(m.type == "system" for m in messages):
+            system_msg = SystemMessage(
+                content="You must ALWAYS call the retrieve_information tool before answering questions about student loans or the Direct Loan Program."
+            )
+            messages = [system_msg] + messages
+        
         response = model_with_tools.invoke(messages)
         return {"messages": [response]}
     return _inner

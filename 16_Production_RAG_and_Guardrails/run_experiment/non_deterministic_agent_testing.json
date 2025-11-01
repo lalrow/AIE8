@@ -1,0 +1,104 @@
+{
+  "non_deterministic_agent_testing": {
+    "overview": "Both agents use the same architecture but model decides whether to call tools non-deterministically",
+    "test_queries": [
+      {
+        "query": "What is the main purpose of the Direct Loan Program?",
+        "expected_tool": "RAG (retrieve_information)",
+        "simple_agent": {
+          "time_seconds": 3.97,
+          "messages_count": 4,
+          "tool_calls": 1,
+          "tools_used": ["retrieve_information"],
+          "response_preview": "The main purpose of the Direct Loan Program is for the U.S. Department of Education to make loans to help students and parents pay the cost of attendance (COA) at a postsecondary school.",
+          "behavior": "Model decided to call RAG tool"
+        },
+        "helpfulness_agent": {
+          "time_seconds": 3.19,
+          "messages_count": 3,
+          "tool_calls": 0,
+          "tools_used": [],
+          "response_preview": "HELPFULNESS:Y",
+          "behavior": "Model answered from its own knowledge, skipped tools, passed helpfulness check"
+        }
+      },
+      {
+        "query": "What are the latest developments in AI safety?",
+        "expected_tool": "Tavily (web search)",
+        "simple_agent": {
+          "time_seconds": 11.65,
+          "messages_count": 4,
+          "tool_calls": 1,
+          "tools_used": ["tavily_search_results_json"],
+          "response_preview": "The latest developments in AI safety in 2024 include several key initiatives and advancements: 1. The Center for AI Safety (CAIS) has been very active, supporting 77 AI safety research papers, publishing a comprehensive textbook titled 'Introduction to AI Safety, Ethics, and Society,' launching an online course with 240 participants...",
+          "behavior": "Model called Tavily web search for current events"
+        },
+        "helpfulness_agent": {
+          "time_seconds": 9.02,
+          "messages_count": 5,
+          "tool_calls": 1,
+          "tools_used": ["tavily_search_results_json"],
+          "response_preview": "HELPFULNESS:Y",
+          "behavior": "Model called Tavily web search, passed helpfulness check"
+        }
+      },
+      {
+        "query": "Find recent papers about transformer architectures",
+        "expected_tool": "Arxiv (academic search)",
+        "simple_agent": {
+          "time_seconds": 5.02,
+          "messages_count": 4,
+          "tool_calls": 1,
+          "tools_used": ["arxiv"],
+          "response_preview": "Here are some recent papers about transformer architectures: 1. 'TurboViT: Generating Fast Vision Transformers via Generative Architecture Search' (2023-08-22) - This paper presents TurboViT, an efficient hierarchical vision transformer architecture generated via generative architecture search...",
+          "behavior": "Model called Arxiv for academic papers"
+        },
+        "helpfulness_agent": {
+          "time_seconds": 4.37,
+          "messages_count": 5,
+          "tool_calls": 1,
+          "tools_used": ["arxiv"],
+          "response_preview": "HELPFULNESS:Y",
+          "behavior": "Model called Arxiv for academic papers, passed helpfulness check"
+        }
+      },
+      {
+        "query": "How do the concepts in this document relate to current AI research trends?",
+        "expected_tool": "Multiple (RAG + Tavily)",
+        "simple_agent": {
+          "time_seconds": 5.56,
+          "messages_count": 4,
+          "tool_calls": 1,
+          "tools_used": ["retrieve_information"],
+          "response_preview": "The document focuses on regulations and administrative aspects of the Direct Loan Program, such as entrance counseling, default prevention, loan period adjustments, and academic progress reporting. It does not directly address AI technologies or research. However, there are potential indirect connections to current AI research trends...",
+          "behavior": "Model called RAG tool to understand document content first"
+        },
+        "helpfulness_agent": {
+          "time_seconds": 7.12,
+          "messages_count": 5,
+          "tool_calls": 1,
+          "tools_used": ["retrieve_information"],
+          "response_preview": "HELPFULNESS:Y",
+          "behavior": "Model called RAG tool, passed helpfulness check"
+        }
+      }
+    ],
+    "analysis": {
+      "key_findings": {
+        "query_1": "Helpfulness faster (3.19s vs 3.97s) - SKIPPED TOOLS (0 vs 1 call)",
+        "query_2": "Helpfulness faster (9.02s vs 11.65s) - BOTH used Tavily (1 call each)",
+        "query_3": "Helpfulness faster (4.37s vs 5.02s) - BOTH used Arxiv (1 call each)",
+        "query_4": "Helpfulness SLOWER (7.12s vs 5.56s) - BOTH used RAG (1 call each)"
+      },
+      "speed_pattern": "Helpfulness agent faster in 3/4 queries, not always due to skipping tools",
+      "tool_usage": "Both agents called tools in 3/4 queries - only Query 1 showed tool skipping by helpfulness agent",
+      "why_helpfulness_faster_when_using_tools": "Helpfulness evaluation adds <1s overhead but may optimize token generation or use cached responses more efficiently",
+      "why_helpfulness_slower_query4": "Extra helpfulness evaluation (5 messages vs 4) added overhead without compensating speedup",
+      "root_cause": "Model's tool-calling decision is non-deterministic even at low temperature (0.1)",
+      "same_architecture": true,
+      "both_wait_for_tool_calls": true,
+      "neither_forces_rag_first": true,
+      "conclusion": "Original hypothesis partially correct - tool skipping explains Query 1 speed advantage, but Queries 2-3 show helpfulness can be faster even WITH tools, possibly due to more concise generations or better caching"
+    }
+  }
+}

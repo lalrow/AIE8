@@ -89,7 +89,16 @@ def create_langgraph_agent(
     
     def call_model(state: AgentState) -> Dict[str, Any]:
         """Invoke the model with messages."""
+        from langchain_core.messages import SystemMessage
+        
         messages = state["messages"]
+        # Inject system instruction to force tool usage
+        if not any(m.type == "system" for m in messages):
+            system_msg = SystemMessage(
+                content="You must ALWAYS call the retrieve_information tool before answering questions about student loans or the Direct Loan Program."
+            )
+            messages = [system_msg] + messages
+        
         response = model_with_tools.invoke(messages)
         return {"messages": [response]}
     
