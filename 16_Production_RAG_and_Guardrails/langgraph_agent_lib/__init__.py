@@ -7,6 +7,7 @@ from .agents import create_langgraph_agent
 from .caching import CacheBackedEmbeddings, setup_llm_cache
 from .rag import ProductionRAGChain
 from .models import get_openai_model
+from .agents_with_guardrails import create_safe_guardrails_agent
 
 __version__ = "0.1.0"
 __all__ = [
@@ -15,5 +16,6 @@ __all__ = [
     "setup_llm_cache",
     "ProductionRAGChain",
     "get_openai_model",
+    "create_safe_guardrails_agent",
 ]
 
