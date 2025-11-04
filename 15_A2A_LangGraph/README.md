@@ -88,7 +88,11 @@ What are the core components of an `AgentCard`?
 
 ##### ✅ Answer:  
 
-An AgentCard exposes an agent’s communication mechanism and capabilities. It defines how other agents can safely interact with it by describing its input and output modes, skills, and overall abilities. It also outlines the message formats and response structures, making communication predictable and consistent across different agents or systems.
+An AgentCard exposes an agent’s communication mechanism and overall capabilities. It defines how other agents can safely interact with it by describing its input and output modes, core skills, and abilities. This allows an agent to share a clear interface while keeping its internal logic private, ensuring interoperability and safety during communication.
+
+The AgentCard also contains key metadata such as the agent’s name, description, service URL, provider, version, and documentation link. This information gives other agents enough context to identify, locate, and connect to the service. It can also specify supported features like streaming, push notifications, or state transition history, along with any authentication requirements such as Basic or Bearer tokens.
+
+Each skill listed in the AgentCard includes its own name, description, tags, and examples, along with skill-specific input and output modes when they differ from the defaults. By publishing all this in a consistent format, the AgentCard ensures that communication between agents remains predictable, reusable, and secure across different frameworks or systems, supporting scalable and maintainable multi-agent networks.
 <br />
 
 ### ❓ Question #2:
@@ -97,7 +101,9 @@ Why is A2A (and other such protocols) important in your own words?
 
 ##### ✅ Answer:  
 
-When two agents are built on different frameworks like LangGraph and CrewAI, it’s cleaner to connect them using A2A. A2A lets a remote server keep its interface hidden so it doesn’t need to show internal details. It also means you can reuse someone else’s agent instead of building everything again. It gives a common way for different systems or companies to talk to each other. Even though LangGraph can wrap another agent as a tool inside CrewAI, A2A makes that connection more direct and standard.
+A2A matters because otherwise every agent framework does its own thing. Like, if I build something in LangGraph and you build in CrewAI, we'd normally be stuck. A2A gives us a common language so agents can actually work together without needing to know each other's internals. Plus you can use someone's existing agent instead of rebuilding the same thing yourself.
+
+It's kind of like how APIs work for regular software - you don't need to see the code, just know how to send requests and get responses. Makes things way more scalable when you're trying to get multiple agents from different sources to collaborate on something complex. 
 
 
 
