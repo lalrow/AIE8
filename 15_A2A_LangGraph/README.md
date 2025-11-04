@@ -82,6 +82,28 @@ Build a LangGraph Graph to "use" your application.
 
 Do this by creating a Simple Agent that can make API calls to the 🤖Agent Node above through the A2A protocol. 
 
+## Activity #1 — LangGraph client that “uses” the A2A Agent
+
+- **Client created**: `app/langgraph_a2a_client.py` (discovers the server’s AgentCard and calls the 🤖 Agent Node via the A2A protocol).
+- **Prerequisite**: Start the server in another terminal:
+```bash
+uv run python -m app
+```
+
+### How to run
+
+# Single-turn
+uv run python app/langgraph_a2a_client.py --mode single --query "What are the latest AI developments in 2025?"
+
+# Multi-turn (reuses task/context across turns)
+uv run python app/langgraph_a2a_client.py --mode multi \
+  --query "Find recent papers on transformer architectures" \
+  --next "Can you summarize the key findings?"
+
+# Streaming (prints live chunks; ends with task/context ids)
+uv run python app/langgraph_a2a_client.py --mode stream --query "Give me a brief update on LLM research"
+
+
 ### ❓ Question #1:
 
 What are the core components of an `AgentCard`?
